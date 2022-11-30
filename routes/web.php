@@ -23,6 +23,7 @@ Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard'
 Route::get('/group', [HomeController::class, 'group'])->name('group');
 Route::get('/employee', [HomeController::class, 'employee'])->name('employee');
 Route::get('/product', [HomeController::class, 'product'])->name('product');
+Route::get('/role', [HomeController::class, 'role'])->name('role');
 
 Route::get('/login', function () { return view('auth.login');});
 Route::get('/register', function () { return view('auth.register');});

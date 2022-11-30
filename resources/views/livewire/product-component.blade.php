@@ -9,6 +9,7 @@
     @endif
 </div>
 
+<div class="flex flex-row">
 <div class="w-1/5 mx-auto">
     <form wire:submit.prevent="storeProduct">
         @csrf
@@ -35,7 +36,7 @@
         </div>
 
         <div class="flex flex-col w-4/5 mx-auto my-8">
-            STEPS
+           <p class="text-center text-red-500 font-bold">STEPS</p> 
         </div>
 
         <div class="p-5 flex justify-end">
@@ -46,7 +47,7 @@
     </form>
 </div>
 
-    <div>
+    <div class="mt-10 mx-auto">
         <table class="w-full text-sm text-left text-gray-500">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
@@ -54,7 +55,6 @@
                     <th scope="col" class="py-3 px-6">Product Name</th>
                     <th scope="col" class="py-3 px-6">Description</th>
                     <th scope="col" class="py-3 px-6">Product Value</th>
-                    <th scope="col" class="py-3 px-6"><span class="sr-only"></span></th>
                 </tr>
             </thead>
             <tbody>
@@ -78,4 +78,5 @@
             </tbody>
         </table>
     </div>
+</div>
 </div>

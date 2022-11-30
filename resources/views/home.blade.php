@@ -15,7 +15,7 @@
     <x-nav />
 
     <div class="p-5 flex justify-center text-center">
-        <h1 class="font-bold text-gray-600 text-7xl">
+        <h1 class="font-bold text-gray-600 text-4xl">
             coming soon</h1>
     </div>
         
@@ -23,7 +23,7 @@
         @livewire('form')
     </div> --}}
 
-    
+    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     @livewireScripts
 </body>
 </html>

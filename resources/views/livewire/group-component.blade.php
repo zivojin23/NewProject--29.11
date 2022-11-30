@@ -9,6 +9,7 @@
     @endif
 </div>
 
+<div class="flex flex-row">
 <div class="w-1/5 mx-auto">
     <form wire:submit.prevent="storeGroup">
         @csrf
@@ -23,7 +24,7 @@
         <div class="flex flex-col w-4/5 mx-auto my-8">
             <label for="group_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
             <textarea class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
-                    wire:model="group_description" id="group_description" rows="4" placeholder="Description of the Product"></textarea>
+                    wire:model="group_description" id="group_description" rows="4" placeholder="Description of the Group"></textarea>
             @error('group_description')<span class="text-red-600">{{ $message }}</span>@enderror
         </div>
 
@@ -50,7 +51,7 @@
     </form>
 </div>
 
-    <div>
+    <div class="mt-10 mx-auto">
         <table class="w-full text-sm text-left text-gray-500">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
@@ -58,7 +59,7 @@
                     <th scope="col" class="py-3 px-6">Group Name</th>
                     <th scope="col" class="py-3 px-6">Description</th>
                     <th scope="col" class="py-3 px-6">Group members</th>
-                    <th scope="col" class="py-3 px-6"><span class="sr-only"></span></th>
+                    {{-- <th scope="col" class="py-3 px-6"><span class="sr-only"></span></th> --}}
                 </tr>
             </thead>
             <tbody>
@@ -81,4 +82,5 @@
             </tbody>
         </table>
     </div>
+</div>
 </div>

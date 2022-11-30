@@ -23,6 +23,7 @@
         @livewire('group-component')
     </div>
 
+    <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     @livewireScripts
 </body>
 </html>

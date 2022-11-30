@@ -9,6 +9,9 @@
     @endif
 </div>
 
+{{-- <x-aside /> --}}
+
+<div class="flex flex-row">
 <div class="w-1/5 mx-auto">
     <form wire:submit.prevent="storeEmployee">
         @csrf
@@ -59,9 +62,9 @@
         </div>
 
     </form>
-    </div>
+</div>
 
-    <div>
+    <div class="mt-10 mx-auto">
         <table class="w-full text-sm text-left text-gray-500">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
@@ -71,8 +74,6 @@
                     <th scope="col" class="py-3 px-6">Email</th>
                     <th scope="col" class="py-3 px-6">Started working</th>
                     <th scope="col" class="py-3 px-6">Member of group</th>
-                    <th scope="col" class="py-3 px-6"><span class="sr-only"></span></th>
-                    <th scope="col" class="py-3 px-6"><span class="sr-only"></span></th>
                 </tr>
             </thead>
             <tbody>
@@ -90,4 +91,5 @@
             </tbody>
         </table>
     </div>
+</div>
 </div>

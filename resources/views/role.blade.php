@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Product</title>
+    <title>Role</title>
 
     <link href="/css/app.css" rel="stylesheet">
     @livewireStyles
@@ -16,11 +16,12 @@
 
     <div class="p-5 flex justify-center text-center">
         <h1 class="font-bold text-gray-600 text-4xl">
-            Products</h1>
+            Roles<br>
+            (coming soon)</h1>
     </div>
 
     <div>
-        @livewire('product-component')
+        
     </div>
 
     <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
