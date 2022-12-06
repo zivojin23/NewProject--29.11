@@ -21,4 +21,10 @@ class Employee extends Model
     {
         return $this->belongsTo(Group::class);
     }
+
+    public function role()
+    {
+        return $this->hasOne(Role::class);
+    }
+
 }

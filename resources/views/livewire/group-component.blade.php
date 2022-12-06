@@ -28,20 +28,22 @@
             @error('group_description')<span class="text-red-600">{{ $message }}</span>@enderror
         </div>
 
-        <div class="flex flex-col w-4/5 mx-auto my-8">      
+        {{-- <div class="flex flex-col w-4/5 mx-auto my-8">      
             <label for="employee_id" class="mb-2 text-sm font-medium">Employee</label>        
             <select class="shadow p-2.5 text-sm rounded-lg bg-gray-50 border border-gray-300" 
                 wire:model="employee_id" id="employee_id">
                 <option value="" disabled selected>-- Select employee for this group --</option>
+                                   
                     @foreach ($employees as $employee)
                         <option value="{{ $employee->id }}">
                             {{ $employee->first_name }}
                             {{ $employee->last_name }}
                         </option>
                     @endforeach
+
             </select>     
             @error('employee_id')<span class="text-red-600">{{ $message }}</span>@enderror
-        </div>
+        </div> --}}
 
         <div class="p-5 flex justify-end">
             <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
@@ -59,7 +61,8 @@
                     <th scope="col" class="py-3 px-6">Group Name</th>
                     <th scope="col" class="py-3 px-6">Description</th>
                     <th scope="col" class="py-3 px-6">Group members</th>
-                    {{-- <th scope="col" class="py-3 px-6"><span class="sr-only"></span></th> --}}
+                    <th scope="col" class="py-3 px-6"><span class="sr-only"></span></th>
+
                 </tr>
             </thead>
             <tbody>
@@ -76,6 +79,13 @@
                             {{ $employee->last_name }}
                                 <br>
                         @endforeach
+                    </td>
+                    <td class="py-4 px-6 text-right">
+                        @can('group_edit')
+                            <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
+                                    wire:click="editGroup({{ $group->id }})">Edit</button>   
+                        @endcan
+                        
                     </td>
                 </tr>         
                 @endforeach

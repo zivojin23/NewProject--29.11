@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('groups', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            // $table->foreign('employee_id')->references('id')->on('employees');
             $table->string('group_name');
             $table->string('group_description');
             $table->timestamps();

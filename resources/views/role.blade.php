@@ -16,12 +16,11 @@
 
     <div class="p-5 flex justify-center text-center">
         <h1 class="font-bold text-gray-600 text-4xl">
-            Roles<br>
-            (coming soon)</h1>
+            Roles</h1>
     </div>
 
     <div>
-        
+        @livewire('role-component')
     </div>
 
     <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>

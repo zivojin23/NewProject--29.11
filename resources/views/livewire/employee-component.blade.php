@@ -74,6 +74,8 @@
                     <th scope="col" class="py-3 px-6">Email</th>
                     <th scope="col" class="py-3 px-6">Started working</th>
                     <th scope="col" class="py-3 px-6">Member of group</th>
+                    {{-- <th scope="col" class="py-3 px-6">Role</th> --}}
+                    <th scope="col" class="py-3 px-6"><span class="sr-only"></span></th>
                 </tr>
             </thead>
             <tbody>
@@ -86,6 +88,16 @@
                     <td class="py-4 px-6">{{ $employee->email }}</td>
                     <td class="py-4 px-6">{{ $employee->start_date }}</td>
                     <td class="py-4 px-6">{{ $employee->group->group_name }}</td>
+                    {{-- <td class="py-4 px-6">{{ $employee->role->role_name }}</td> --}}
+
+
+                    <td class="py-4 px-6 text-right">
+                        @can('employee_edit')
+                            <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
+                                    wire:click="editEmployee({{ $employee->id }})">Edit</button>   
+                        @endcan
+                        
+                    </td>    
                 </tr>
                 @endforeach
             </tbody>

@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends Model
+class Role extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'group_name',
-        'group_description',
-        'employee_id'
+        'role_name',
+        'role_description'
     ];
 
-    public function employees()
+    public function users()
     {
-        return $this->hasMany(Employee::class);
+        return $this->hasMany(User::class);
     }
 }
