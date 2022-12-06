@@ -13,7 +13,7 @@
                 style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 9.77778px, 0px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom">
                 <div class="py-3 px-4">
                     <span class="block text-sm text-gray-900 mb-1">{{ $user->first_name }}</span>
-                    <span class="block text-sm text-gray-900 mb-1">{{ $user->role->role_name }}</span>
+                    <span class="block text-sm text-gray-900 mb-1">{{ $user->role->role_name }} (role)</span>
                     <span class="block text-sm font-medium text-gray-500 truncate">{{ $user->email }}</span>
                 </div>
                 <ul class="py-1" aria-labelledby="user-menu-button">

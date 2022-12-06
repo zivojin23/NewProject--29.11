@@ -56,6 +56,8 @@
             @error('group_id')<span class="text-red-600">{{ $message }}</span>@enderror
         </div>
 
+
+
         <div class="p-5 flex justify-end">
             <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
                     wire:click.prevent="storeEmployee()" type="submit">Save</button>

@@ -60,8 +60,9 @@
 
 </div>
 
-<div class="w-4/5 mx-auto p-5 font-light border border-b-0 border-gray-200">
-    <div class="sm:grid sm:grid-cols-4 flex">
+
+<div class="w-4/5 mx-auto p-5 bg-red-100">
+    <div class="sm:grid sm:grid-cols-3 flex">
 
         <div class="flex flex-col">
             <div class="p-3 text-base">
@@ -73,7 +74,7 @@
             </div>
         </div>
 
-        <div class="sm:pl-10 grid col-span-2">
+        <div class="flex flex-col">
             <div class="p-3 text-base">
                 <p class="py-2 ml-3">{{ $user->id }}</p>
                 <p class="py-2 ml-3">{{ $user->first_name }}</p>
@@ -83,9 +84,6 @@
             </div>
         </div>
 
-        <div class="px-4 py-2 flex flex-col justify-between">
-            <p class="text-sm italic flex justify-end">{{ $user->updated_at }}</p>
-        </div>
     </div>
 </div>
 

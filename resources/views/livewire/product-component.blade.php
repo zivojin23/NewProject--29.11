@@ -35,6 +35,8 @@
             @error('product_value')<span class="text-red-600">{{ $message }}</span>@enderror
         </div>
 
+
+
         <div class="flex flex-col w-4/5 mx-auto my-8">
            <p class="text-center text-red-500 font-bold">STEPS</p> 
         </div>

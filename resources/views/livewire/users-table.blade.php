@@ -25,104 +25,40 @@
             </thead>
             <tbody>
 
-
-                @foreach ($users as $user)   
-
-
+            @foreach($users as $user)
                 <tr class="bg-white border-b hover:bg-gray-50" >
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900">{{ $user->id }}</th>
                     <td class="py-4 px-6">{{ $user->first_name }}</td>
                     <td class="py-4 px-6">{{ $user->last_name }}</td>
                     <td class="py-4 px-6">{{ $user->email }}</td>
 
-
-
-
-                    
-                    
-
-
-                        {{-- <livewire:user-profile :user="$user" > --}}
-
-                        {{-- @if ($updateUser)
-
-                            <select  class="shadow p-2.5 text-sm rounded-lg bg-gray-50 border border-gray-300" 
-                                    wire:model="new_role_id" name="new_role_id" id="new_role_id">
-                                  
-                                <option value="" disabled selected>Please select one</option>
-
-                                    @foreach ($roles as $role)
-                                        <option value="{{ $role->role_id }}">{{ $role->role_name }}</option>
-                                    @endforeach
+                @if ($updateUserRole)
+                    <td class="py-4 px-6">
+                        <select wire:model="role_id" name="role_id" id="role_id" :wire:key="select-role-{{ $user->id }}">
                             
-                            </select>
-                        
-                        @else           
-                                    
-                            <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
-                                    wire:click="findUser({{ $user->id }})">find this user</button>
-                        
-                        @endif  --}}
-
-                        @if ($updateUser)
-                            {{-- <input wire:model="new_role_id" type="text"
-                                    :wire:key="$user-key-{{ $user->id }}"> --}}
-
-                        <td class="py-4 px-6">
-                            <select wire:model="new_role_id" name="new_role_id" id="new_role_id">
-                
-                                <option value="3">Employee</option>
-                                <option value="4">Director</option>
-                                <option value="5">Chief</option>
-                                {{-- <option value="{{ $role->role_id }}">{{ $role->role_name }}</option> --}}
-
-                            </select>
-                        </td>
-                        {{-- <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
-                                wire:click="updateUser()" type="submit">Submit</button> --}}
-                        
-
-                        @else
-                            <td class="py-4 px-6">{{ $user->role->role_name }}</td>
-                        @endif
+                            @foreach ($roles as $role)
+                                <option value="{{ $role->id }}">{{ $role->role_name }}</option>
+                            @endforeach
                             
-
-                        
-
-                    {{-- @foreach ($items as $item)
-                        <li wire:key="item-{{ $item->id }}">{{ $item }}</li>
-                    @endforeach --}}
-
-                    {{-- @if ($updateUserRole)
-                        <div>
-
-                        </div>
-                    @endif --}}
-                
+                        </select>
+                    </td>                  
+                @else
+                    <td class="py-4 px-6">{{ $user->role->role_name }}</td>
+                @endif            
+            
                     <td class="py-4 px-6 text-right">
-                        
-                        {{-- <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
-                                wire:click="findUser({{ $user->id }})">find this user</button>    --}}
 
-                    @if ($updateUser)
-
+                    @if ($updateUserRole)
                         <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
-                                wire:click="updateUser({{ $user->id }})">update role</button>
-                    
-                    @else           
-                                
+                                wire:click="updateUser({{ $user->role_id }})">Update role</button>  
+                    @else                        
                         <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
-                                wire:click="findUser({{ $user->id }})">find this user</button>
-                    
+                                wire:click="editUser({{ $user->id }})">Edit user's role</button>
                     @endif    
                     
                     </td>
-
                 </tr> 
-                
-                @endforeach
-
-
+            @endforeach
 
             </tbody>
         </table>

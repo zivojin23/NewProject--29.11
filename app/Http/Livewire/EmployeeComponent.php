@@ -15,7 +15,6 @@ class EmployeeComponent extends Component
     
     public $group_id = '';
     public $employee_id;
-    public $role_id;
 
     protected $rules = [
         'first_name' => 'required',
