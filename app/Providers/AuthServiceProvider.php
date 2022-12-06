@@ -27,27 +27,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('employee_edit', function (User $user) {
-            return $user->role_id == 1 || $user->role_id == 2 || $user->role_id == 4; 
-        }); 
-        Gate::define('product_edit', function (User $user) {
-            return $user->role_id == 1 || $user->role_id == 2 || $user->role_id == 4; 
-        });
-        Gate::define('group_edit', function (User $user) {
-            return $user->role_id == 1 || $user->role_id == 2 || $user->role_id == 4; 
-        });
-        Gate::define('role_edit', function (User $user) {
+        Gate::define('access_by_system', function (User $user) {
             return $user->role_id == 1 || $user->role_id == 2; 
         }); 
-
-
-        Gate::define('view_by_system', function (User $user) {
-            return $user->role_id == 1 || $user->role_id == 2; 
-        }); 
-        Gate::define('view_by_director', function (User $user) {
+        Gate::define('access_by_director', function (User $user) {
             return $user->role_id == 1 || $user->role_id == 2 || $user->role_id == 4; 
         }); 
-        Gate::define('view_by_chief', function (User $user) {
+        Gate::define('access_by_chief', function (User $user) {
             return $user->role_id == 1 || $user->role_id == 2 || $user->role_id == 4 || $user->role_id == 5;
         }); 
     }

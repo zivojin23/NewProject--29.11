@@ -20,7 +20,7 @@
 
 <div class="container mx-auto flex flex-wrap pt-4 pb-12">
 
-    @can('view_by_system')
+    @can('access_by_system')
         <div class="w-1/4 p-6 flex flex-col hover:transition hover:duration-250 hover:ease-in-out hover:scale-105">
             <a href="/role" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-blue-100">        
                 <h5 class="mb-2 text-2xl font-bold text-gray-700">Roles</h5>
@@ -30,7 +30,7 @@
         </div>
     @endcan
 
-    @can('view_by_director')
+    @can('access_by_director')
         <div class="w-1/4 p-6 flex flex-col hover:transition hover:duration-250 hover:ease-in-out hover:scale-105">
             <a href="/group" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-blue-100">        
                 <h5 class="mb-2 text-2xl font-bold text-gray-700">Groups</h5>
@@ -48,7 +48,7 @@
         </div>
     @endcan
     
-    @can('view_by_chief')
+    @can('access_by_chief')
         <div class="w-1/4 p-6 flex flex-col hover:transition hover:duration-250 hover:ease-in-out hover:scale-105">
             <a href="/employee" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-blue-100">        
                 <h5 class="mb-2 text-2xl font-bold text-gray-700">Employees</h5>
@@ -60,20 +60,32 @@
 
 </div>
 
+<div class="w-4/5 mx-auto p-5 font-light border border-b-0 border-gray-200">
+    <div class="sm:grid sm:grid-cols-4 flex">
 
+        <div class="flex flex-col">
+            <div class="p-3 text-base">
+                <p class="py-2 ml-3">User ID</p>
+                <p class="py-2 ml-3">First Name</p>
+                <p class="py-2 ml-3">Last Name</p>
+                <p class="py-2 ml-3">Email</p>
+                <p class="py-2 ml-3">Role</p>
+            </div>
+        </div>
 
-<div>
-    <h3 class="text-3xl">
-        Personal info
-    </h3>
-    <div>
-        <p>{{ $user->first_name }}</p>
-        <p>{{ $user->last_name }}</p>
-        <p>{{ $user->email }}</p>
-        <p>
-            {{ $user->role->role_name }}
-            <br>{{ $user->role->role_description }}
-        </p>
+        <div class="sm:pl-10 grid col-span-2">
+            <div class="p-3 text-base">
+                <p class="py-2 ml-3">{{ $user->id }}</p>
+                <p class="py-2 ml-3">{{ $user->first_name }}</p>
+                <p class="py-2 ml-3">{{ $user->last_name }}</p>
+                <p class="py-2 ml-3">{{ $user->email }}</p>
+                <p class="py-2 ml-3">{{ $user->role->role_name }}</p>      
+            </div>
+        </div>
+
+        <div class="px-4 py-2 flex flex-col justify-between">
+            <p class="text-sm italic flex justify-end">{{ $user->updated_at }}</p>
+        </div>
     </div>
 </div>
 

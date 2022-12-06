@@ -81,7 +81,7 @@
                         @endforeach
                     </td>
                     <td class="py-4 px-6 text-right">
-                        @can('group_edit')
+                        @can('access_by_director')
                             <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
                                     wire:click="editGroup({{ $group->id }})">Edit</button>   
                         @endcan

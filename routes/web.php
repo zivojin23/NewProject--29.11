@@ -18,16 +18,20 @@ use App\Http\Controllers\RegisterController;
 
 Route::get('/', function () { return view('welcome');});
 
-Route::get('/home', [HomeController::class, 'home'])->name('home');
-Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
-Route::get('/group', [HomeController::class, 'group'])->name('group');
-Route::get('/employee', [HomeController::class, 'employee'])->name('employee');
-Route::get('/product', [HomeController::class, 'product'])->name('product');
-Route::get('/role', [HomeController::class, 'role'])->name('role');
-
 Route::get('/login', function () { return view('auth.login');});
 Route::get('/register', function () { return view('auth.register');});
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/home', [HomeController::class, 'dashboard'])->name('home');
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+    Route::get('system.users', [HomeController::class, 'allUsers'])->name('all-users');
+    Route::get('/employee', function () { return view('employee');})->name('employee');
+    Route::get('/role', function () { return view('role');})->name('role');
+    Route::get('/group', function () { return view('group');})->name('group');
+    Route::get('/product', function () { return view('product');})->name('product');
+});
+

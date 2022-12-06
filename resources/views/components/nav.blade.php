@@ -25,10 +25,11 @@
             <ul class="flex flex-col p-2 mt-4 md:flex-row md:space-x-4 md:mt-0 md:text-sm md:font-medium">
                 <li><a href="/home" class="block py-3 px-4 text-gray-700 rounded-lg hover:bg-blue-100">Home</a></li>
                 <li><a href="/dashboard" class="block py-3 px-4 text-gray-700 rounded-lg hover:bg-blue-100">Dashboard</a></li>
-                {{-- <li><a href="/roles" class="block py-3 px-4 text-gray-700 rounded-lg hover:bg-blue-100">Roles</a></li>
-                <li><a href="/employee" class="block py-3 px-4 text-gray-700 rounded-lg hover:bg-blue-100">Employee</a></li>
-                <li><a href="/group" class="block py-3 px-4 text-gray-700 rounded-lg hover:bg-blue-100">Group</a></li>
-                <li><a href="/product" class="block py-3 px-4 text-gray-700 rounded-lg hover:bg-blue-100">Product</a></li> --}}
+
+            @can('access_by_system')
+                <li><a href="system.users" class="block py-3 px-4 text-gray-700 rounded-lg hover:bg-blue-100">Users</a></li>
+            @endcan
+
             </ul>
         </div>
 

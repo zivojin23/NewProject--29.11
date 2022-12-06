@@ -59,7 +59,7 @@
                     <td class="py-4 px-6">{{ $role->role_description }}</td>
                     <td class="py-4 px-6">{{ $role->updated_at }}</td>
                     <td class="py-4 px-6 text-right">
-                        @can('role_edit')
+                        @can('access_by_system')
                             <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
                                     wire:click="editRole({{ $role->id }})">Edit</button>
                         @endcan
