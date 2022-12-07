@@ -27,7 +27,7 @@
                 <li><a href="/dashboard" class="block py-3 px-4 text-gray-700 rounded-lg hover:bg-blue-100">Dashboard</a></li>
 
             @can('access_by_system')
-                <li><a href="users-table" class="block py-3 px-4 text-gray-700 rounded-lg hover:bg-blue-100">Users</a></li>
+                <li><a href="users-tab" class="block py-3 px-4 text-gray-700 rounded-lg hover:bg-blue-100">Users</a></li>
             @endcan
 
             </ul>

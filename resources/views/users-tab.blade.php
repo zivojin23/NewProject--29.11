@@ -15,7 +15,7 @@
     <x-nav />
 
     <div>
-        @livewire('users-table')
+        @livewire('user-component')
     </div>
 
     <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
