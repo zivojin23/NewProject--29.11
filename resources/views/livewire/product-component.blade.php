@@ -20,7 +20,7 @@
                 wire:model="product_name" id="product_name" type="text" placeholder="Name of the Product">  
             @error('product_name')<span class="text-red-600">{{ $message }}</span>@enderror
         </div>
-
+`
         <div class="flex flex-col w-4/5 mx-auto my-8">
             <label for="product_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Description</label>
             <textarea class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
@@ -35,11 +35,15 @@
             @error('product_value')<span class="text-red-600">{{ $message }}</span>@enderror
         </div>
 
-
-
-        <div class="flex flex-col w-4/5 mx-auto my-8">
+        {{-- <div class="flex flex-col w-4/5 mx-auto my-8">
            <p class="text-center text-red-500 font-bold">STEPS</p> 
-        </div>
+        </div> --}}
+
+        {{-- <div>
+            @livewire('step-component')
+        </div> --}}
+
+
 
         <div class="p-5 flex justify-end">
             <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
@@ -57,6 +61,7 @@
                     <th scope="col" class="py-3 px-6">Product Name</th>
                     <th scope="col" class="py-3 px-6">Description</th>
                     <th scope="col" class="py-3 px-6">Product Value</th>
+                    <th scope="col" class="py-3 px-6">Steps</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,6 +72,17 @@
                     <td class="py-4 px-6">{{ $product->product_name }}</td>
                     <td class="py-4 px-6">{{ $product->product_description }}</td>
                     <td class="py-4 px-6">{{ $product->product_value }}</td>
+
+                    <td class="py-4 px-6">
+                        @foreach ($product->steps as $step)
+                        {{ $step->step_name }}
+                        <br>
+                    @endforeach
+                    </td>
+
+
+
+                    {{-- <td class="py-4 px-6">{{ $product->steps }}</td> --}}
 
                     {{-- <td class="py-4 px-6">
                         @foreach ($group->employees as $employee)

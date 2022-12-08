@@ -26,43 +26,43 @@
             @foreach ($users as $user)
             <tr class="bg-white border-b hover:bg-gray-50" wire:key="tr-{{ $user->id }}">
                 
-                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap" wire:key="th-{{$user->id}}">{{ $user->id }}</th>
-                <td class="py-4 px-6" wire:key="td1-{{$user->id}}">{{ $user->first_name }}</td>
-                <td class="py-4 px-6" wire:key="td2-{{$user->id}}">{{ $user->last_name }}</td>
-                <td class="py-4 px-6" wire:key="td3-{{$user->id}}">{{ $user->email }}</td>
+                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">{{ $user->id }}</th>
+                <td class="py-4 px-6">{{ $user->first_name }}</td>
+                <td class="py-4 px-6">{{ $user->last_name }}</td>
+                <td class="py-4 px-6">{{ $user->email }}</td>
                 
                 @if ($editMode)
-                    <td class="py-4 px-6" wire:key="td4-{{$user->id}}">
-                        <select wire:model="role_id" name="role_id" id="role_id" wire:key="roleselect-{{ $user->id }}">
+                <form wire:submit.prevent="updateUserRole" wire:key="updform-{{ $user->id }}">
+                    <td class="py-4 px-6">
+                        <select wire:model="role_id" name="role_id" id="role_id" wire:key="role-{{ $user->id }}">
                             @foreach ($roles as $role)
-                                <option value="{{ $role->id }}" wire:key="option-{{$user->id}}" >{{ $role->role_name }}</option>
+                                <option value="{{ $role->id }}" wire:key="opt-{{$role->id}}">{{ $role->role_name }}</option>
                             @endforeach
                         </select>
                     </td>
+                </form>
                 @else
-                    <td class="py-4 px-6" wire:key="td5-{{$user->id}}">{{ $user->role->role_name }}</td>
-                @endif
-                    
+                    <td class="py-4 px-6">{{ $user->role->role_name }}</td>
+                @endif            
 
-                <td class="py-4 px-6 text-right" wire:key="td6-{{$user->id}}">
+                <td class="py-4 px-6 text-right">
                     @if ($editMode)
                         <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
-                                wire:click="updateUserRole({{ $user->id }})" wire:key="button-{{$user->id}}">Save</button>
+                                wire:click="updateUserRole({{ $user->id }})">Save</button>
                         <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
-                                wire:click="cancel()" wire:key="cutton-{{$user->id}}">Cancel</button>
+                                wire:click="cancel()">Cancel</button>
                     @else
                         <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
-                                wire:click="editUserRole({{ $user->id }})" wire:key="tutton-{{$user->id}}">Edit role</button>
+                                wire:click="editUserRole({{ $user->id }})">Edit role</button>
+                        </button>
                     @endif
                 </td>
 
-            </tr>
+            </tr>   
             @endforeach  
         </tbody>
     </table>
 </div>
 
-
-  
 </div>
 

@@ -57,6 +57,12 @@ class RoleComponent extends Component
         session()->flash('updated', 'Updated!');
     }
 
+    public function cancel()
+    {
+        $this->reset(['role_name','role_description']);
+        $this->updateRole = false;
+    }
+
     public function render()
     {
         $roles = Role::get();

@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/role', function () { return view('role');})->name('role');
     Route::get('/group', function () { return view('group');})->name('group');
     Route::get('/product', function () { return view('product');})->name('product');
+    Route::get('/step', function () { return view('step');})->name('step');
 
     Route::get('/users-tab', function () { return view('users-tab');})
         ->middleware('can:access_by_system')->name('users-tab');

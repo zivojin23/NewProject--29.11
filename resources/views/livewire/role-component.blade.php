@@ -9,6 +9,13 @@
         </div>    
     </div>
     @endif
+    @if (session()->has('updated'))
+    <div class="bg-green-100 p-4 flex justify-center rounded-lg w-4/5 mx-auto">
+        <div class="font-bold text-xl text-green-700">
+            {{ session()->get('updated') }}
+        </div>    
+    </div>
+    @endif
 </div>
 
 
@@ -31,10 +38,20 @@
             @error('role_description')<span class="text-red-600">{{ $message }}</span>@enderror
         </div>
 
-        <div class="p-5 flex justify-end">
-            <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
-                    wire:click.prevent="storeRole()" type="submit">Save</button>
-        </div>
+        @if ($updateRole)
+            <div class="p-5 flex justify-end">
+                <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
+                        wire:click.prevent="updateRole()" type="submit">Update</button>
+                <button class="bg-red-500 hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
+                        wire:click.prevent="cancel()">Cancel</button>
+            </div>
+        @else   
+            <div class="p-5 flex justify-end">
+                <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
+                        wire:click.prevent="storeRole()" type="submit">Save</button>
+            </div>
+        @endif
+
 
     </form>
 </div>
