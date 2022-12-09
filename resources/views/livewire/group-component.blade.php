@@ -61,6 +61,7 @@
                     <th scope="col" class="py-3 px-6">Group Name</th>
                     <th scope="col" class="py-3 px-6">Description</th>
                     <th scope="col" class="py-3 px-6">Group members</th>
+                    <th scope="col" class="py-3 px-6">Working on these steps:</th>
                     <th scope="col" class="py-3 px-6"><span class="sr-only"></span></th>
 
                 </tr>
@@ -80,6 +81,12 @@
                                 <br>
                         @endforeach
                     </td>
+                    <td class="py-4 px-6">
+                        @foreach ($group->steps as $step)
+                            {{ $step->step_name }}
+                                <br>
+                        @endforeach
+                    </td>
                     <td class="py-4 px-6 text-right">
                         @can('access_by_director')
                             <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
@@ -91,6 +98,9 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div>
+        <button wire:click="ddButton">dd</button>
     </div>
 </div>
 </div>

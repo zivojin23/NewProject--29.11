@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Product;
+use App\Models\Group;
 
 class ProductComponent extends Component
 {
@@ -30,6 +31,14 @@ class ProductComponent extends Component
         $this->reset(['product_name','product_description', 'product_value']);
 
         session()->flash('submitted', 'Submitted!');
+    }
+
+    public function ddButton()
+    {
+        // $prod = Product::find(1);
+        // $steps = Step::
+        // $prod->steps()->attach()
+        // dd($prod->toJson(JSON_PRETTY_PRINT));
     }
 
     public function render()

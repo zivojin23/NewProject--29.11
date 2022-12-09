@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Employee;
 use App\Models\Group;
+use App\Models\Step;
 
 class GroupComponent extends Component
 {
@@ -64,6 +65,35 @@ class GroupComponent extends Component
 
         session()->flash('updated', 'Updated!');
     }
+
+    public function ddButton()
+    {
+        // $grp = Group::all();
+        // $steps = Step::all();
+        // // $steps = Step::
+        // // $prod->steps()->attach()
+
+        // foreach ($grp as $group) {
+        //     $group->steps()->attach($steps);
+        // }
+        $groups = Group::all();
+        $steps = Step::all();
+
+        foreach ($groups as $group) {
+            $group->steps()->attach($steps);
+        }
+
+
+        // $this->group_id = $group->id;
+        // $this->group_id = $group->id;
+
+        
+        // $group->steps()->attach($group_id);
+
+
+        // dd($step);
+    }
+
 
     public function render()
     {

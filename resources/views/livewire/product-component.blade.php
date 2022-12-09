@@ -20,7 +20,7 @@
                 wire:model="product_name" id="product_name" type="text" placeholder="Name of the Product">  
             @error('product_name')<span class="text-red-600">{{ $message }}</span>@enderror
         </div>
-`
+        
         <div class="flex flex-col w-4/5 mx-auto my-8">
             <label for="product_description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Description</label>
             <textarea class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" 
@@ -95,6 +95,9 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div>
+        <button wire:click="ddButton">dd</button>
     </div>
 </div>
 </div>

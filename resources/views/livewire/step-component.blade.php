@@ -57,6 +57,7 @@
                 <th scope="col" class="py-3 px-6">Step Name</th>
                 <th scope="col" class="py-3 px-6">Description</th>
                 <th scope="col" class="py-3 px-6">part of Product</th>
+                <th scope="col" class="py-3 px-6">Group working on this step:</th>
                 <th scope="col" class="py-3 px-6"><span class="sr-only"></span></th>
             </tr>
         </thead>
@@ -73,12 +74,12 @@
                     {{ $step->product->product_name }}
                 </td>
                 
-                {{-- <td class="py-4 px-6">
-                    @foreach ($step->product as $step)
-                        {{ $step->step_name }}
+                <td class="py-4 px-6">
+                    @foreach ($step->groups as $group)
+                        {{ $group->group_name }}
                             <br>
                     @endforeach
-                </td> --}}
+                </td>
                 
 
                 {{-- <td class="py-4 px-6">

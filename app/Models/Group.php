@@ -19,4 +19,11 @@ class Group extends Model
     {
         return $this->hasMany(Employee::class);
     }
+
+    public function steps()
+    {
+        return $this->belongsToMany(Step::class);
+    }
 }
+
+

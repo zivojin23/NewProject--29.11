@@ -19,4 +19,9 @@ class Step extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class);
+    }
 }

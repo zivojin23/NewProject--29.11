@@ -61,31 +61,35 @@
 </div>
 
 
-<div class="w-4/5 mx-auto p-5 bg-red-100">
-    <div class="sm:grid sm:grid-cols-3 flex">
-
-        <div class="flex flex-col">
-            <div class="p-3 text-base">
-                <p class="py-2 ml-3">User ID</p>
-                <p class="py-2 ml-3">First Name</p>
-                <p class="py-2 ml-3">Last Name</p>
-                <p class="py-2 ml-3">Email</p>
-                <p class="py-2 ml-3">Role</p>
+<div class="w-1/4 p-6">
+    <div class="block max-w-sm p-6  bg-gray-100 border border-gray-200 rounded-lg shadow-md">        
+        <h5 class="mb-2 px-6 text-2xl font-bold text-gray-700">Personal info</h5>
+        <div class="flex">
+    
+            <div class="flex flex-col">
+                <div class="p-3 text-base">
+                    <p class="py-2 ml-3">User ID</p>
+                    <p class="py-2 ml-3">First Name</p>
+                    <p class="py-2 ml-3">Last Name</p>
+                    <p class="py-2 ml-3">Email</p>
+                    <p class="py-2 ml-3">Role</p>
+                </div>
             </div>
-        </div>
-
-        <div class="flex flex-col">
-            <div class="p-3 text-base">
-                <p class="py-2 ml-3">{{ $user->id }}</p>
-                <p class="py-2 ml-3">{{ $user->first_name }}</p>
-                <p class="py-2 ml-3">{{ $user->last_name }}</p>
-                <p class="py-2 ml-3">{{ $user->email }}</p>
-                <p class="py-2 ml-3">{{ $user->role->role_name }}</p>      
+    
+            <div class="flex flex-col">
+                <div class="p-3 text-base">
+                    <p class="py-2 ml-3">{{ $user->id }}</p>
+                    <p class="py-2 ml-3">{{ $user->first_name }}</p>
+                    <p class="py-2 ml-3">{{ $user->last_name }}</p>
+                    <p class="py-2 ml-3">{{ $user->email }}</p>
+                    <p class="py-2 ml-3">{{ $user->role->role_name }}</p>      
+                </div>
             </div>
+    
         </div>
-
     </div>
 </div>
+
 
     <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
     @livewireScripts
