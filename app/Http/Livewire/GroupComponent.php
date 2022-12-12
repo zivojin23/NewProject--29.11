@@ -12,13 +12,13 @@ class GroupComponent extends Component
     public $group_name;
     public $group_description;
     public $group_id;
+    public $step_id;
     public $updateGroup = false;
-    // public $employee_id = '';
+    public $attachGroup = false;
 
     protected $rules = [
-        'group_name'        => 'required|unique:groups',
+        'group_name'        => 'required',
         'group_description' => 'required',
-        // 'employee_id'       => 'required'
     ];
 
     public function storeGroup()
@@ -28,7 +28,6 @@ class GroupComponent extends Component
         Group::create([
             'group_name'        => $this->group_name,
             'group_description' => $this->group_description,
-            // 'employee_id'       => $this->employee_id
         ]);
 
         $this->reset(['group_name','group_description']);
@@ -43,7 +42,6 @@ class GroupComponent extends Component
         $this->group_id             = $group->id;
         $this->group_name           = $group->group_name;
         $this->group_description    = $group->group_description;
-
         $this->updateGroup          = true;
     }
 
@@ -51,19 +49,21 @@ class GroupComponent extends Component
     {
         $this->validate();
 
-        Employee::find($this->group_id)->update([
+        Group::find($this->group_id)->update([
             'group_name'            => $this->group_name,
             'group_description'     => $this->group_description,
-            // 'email'         => $this->email,
-            // 'start_date'    => $this->start_date,
-            // 'phone_number'  => $this->phone_number,
-            // 'group_id'      => $this->group_id
         ]);
 
-        // $this->updateEmployee = false;
-        // $this->reset(['first_name','last_name','email', 'start_date', 'group_id']);
-
+        $this->reset(['group_name','group_description']);
+        $this->updateGroup = false;
+        
         session()->flash('updated', 'Updated!');
+    }
+
+    public function cancel()
+    {
+        $this->reset(['group_name','group_description']);
+        $this->updateGroup = false;
     }
 
     public function ddButton()
@@ -76,12 +76,70 @@ class GroupComponent extends Component
         // foreach ($grp as $group) {
         //     $group->steps()->attach($steps);
         // }
-        $groups = Group::all();
-        $steps = Step::all();
+        // $group = Group::first();
+        // $step = Step::first();
 
-        foreach ($groups as $group) {
-            $group->steps()->attach($steps);
-        }
+        // foreach ($groups as $group) {
+        //     $group->steps()->attach($step_id);
+        // }
+
+        // $this->attachGroup = true;
+
+        // $groups = Group::all();
+
+        //     foreach ($groups as $group) 
+        //     {
+        //         $steps = Step::find(1)->take(rand(1,3))->pluck('id');
+
+        //         // dd($groups->toJson(JSON_PRETTY_PRINT));
+        //         // exit;
+
+        //         $group->steps()->attach($steps);
+        //     }
+
+
+
+        $this->attachGroup = true;
+
+        // $groups = Group::all();
+
+
+        //     foreach ($groups as $group) 
+        //     {
+        //         $steps = Step::all();
+
+        //         foreach ($steps as $step)
+                
+        //         // dd($groups->toJson(JSON_PRETTY_PRINT));
+        //         // exit;
+        //         // dd($steps->toJson(JSON_PRETTY_PRINT));
+        //         // exit;
+
+        //         return $group->steps()->attach($step);
+
+        //         // $group->steps()->attach($step);
+        //     }
+
+
+
+
+
+        
+        // $user = User::find(1);
+        
+        // foreach ($user->roles as $role) {
+            //
+
+        // dd($step->toJson(JSON_PRETTY_PRINT));
+        // exit;
+        // dd($group->toJson(JSON_PRETTY_PRINT));
+        // exit;
+
+            // $group->steps()->attach($step_id);
+            // $this->step_id = $step->id;
+        // foreach ($groups as $group) {
+        //     $group->steps()->attach($step_id);
+        // }
 
 
         // $this->group_id = $group->id;
@@ -92,6 +150,10 @@ class GroupComponent extends Component
 
 
         // dd($step);
+
+        // $user = User::find(1);
+ 
+        // $user->roles()->attach($roleId);
     }
 
 

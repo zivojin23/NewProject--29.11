@@ -1,6 +1,4 @@
 <div>
-
-
 <div class="w-1/5 mx-auto mt-8">
     @if (session()->has('submitted'))
     <div class="bg-green-100 p-4 flex justify-center rounded-lg w-4/5 mx-auto">

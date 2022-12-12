@@ -7,6 +7,13 @@
         </div>    
     </div>
     @endif
+    @if (session()->has('updated'))
+    <div class="bg-green-100 p-4 flex justify-center rounded-lg w-4/5 mx-auto">
+        <div class="font-bold text-xl text-green-700">
+            {{ session()->get('updated') }}
+        </div>    
+    </div>
+    @endif
 </div>
 
 <div class="flex flex-row">
@@ -28,27 +35,19 @@
             @error('group_description')<span class="text-red-600">{{ $message }}</span>@enderror
         </div>
 
-        {{-- <div class="flex flex-col w-4/5 mx-auto my-8">      
-            <label for="employee_id" class="mb-2 text-sm font-medium">Employee</label>        
-            <select class="shadow p-2.5 text-sm rounded-lg bg-gray-50 border border-gray-300" 
-                wire:model="employee_id" id="employee_id">
-                <option value="" disabled selected>-- Select employee for this group --</option>
-                                   
-                    @foreach ($employees as $employee)
-                        <option value="{{ $employee->id }}">
-                            {{ $employee->first_name }}
-                            {{ $employee->last_name }}
-                        </option>
-                    @endforeach
-
-            </select>     
-            @error('employee_id')<span class="text-red-600">{{ $message }}</span>@enderror
-        </div> --}}
-
-        <div class="p-5 flex justify-end">
-            <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
-                    wire:click.prevent="storeGroup()" type="submit">Save</button>
-        </div>
+        @if ($updateGroup)
+            <div class="p-5 flex justify-end">
+                <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
+                        wire:click.prevent="updateGroup()" type="submit">Update</button>
+                <button class="bg-red-500 hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
+                        wire:click.prevent="cancel()">Cancel</button>
+            </div>
+        @else   
+            <div class="p-5 flex justify-end">
+                <button class="bg-white hover:bg-green-200 font-semibold py-2 px-4 border border-gray-400 rounded-lg shadow" 
+                        wire:click.prevent="storeGroup()" type="submit">Save</button>
+            </div>
+        @endif
 
     </form>
 </div>
@@ -98,9 +97,29 @@
                 @endforeach
             </tbody>
         </table>
+        <div>
+            <button wire:click="ddButton">dd</button>
+        </div>
+        @if ($attachGroup)
+            <div>
+
+                <label for="step_id" class="mb-2 text-sm font-medium">part of Product</label>        
+                <select class="shadow p-2.5 text-sm rounded-lg bg-gray-50 border border-gray-300" 
+                        wire:model="step_id" id="step_id">
+                    <option value="" disabled selected>-- Please select one --</option>
+                        @foreach ($steps as $step)
+                            <option value="{{ $step->id }}">{{ $step->step_name }}</option>
+                        @endforeach
+                </select>
+                
+                {{-- <select >
+                    <option value="">
+
+                    </option>
+                </select> --}}
+            </div>
+        @endif
     </div>
-    <div>
-        <button wire:click="ddButton">dd</button>
-    </div>
+
 </div>
 </div>
